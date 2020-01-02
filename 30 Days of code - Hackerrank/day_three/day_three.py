@@ -6,19 +6,16 @@ import random
 import re
 import sys
 
-# Complete the solve function below.
-def solve(meal_cost, tip_percent, tax_percent):
-    tip_perc = meal_cost * (tip_percent / 100)
-    tax_perc = meal_cost * (tax_percent / 100)
-    total = round(meal_cost + tip_perc + tax_perc)
 
-    print(total)
 
 if __name__ == '__main__':
-    meal_cost = float(input())
+    N = int(input())
 
-    tip_percent = int(input())
-
-    tax_percent = int(input())
-
-    solve(meal_cost, tip_percent, tax_percent)
+    if(N % 2 == 1):
+        print('Weird')
+    elif(N % 2 == 0 and N >= 2 and N <= 5):
+        print('Not Weird')
+    elif(N % 2 == 0 and N >= 6 and N <= 20):
+        print('Weird')
+    elif(N > 20):
+        print('Not Weird')

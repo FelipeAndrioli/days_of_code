@@ -1,46 +1,43 @@
+'use strict';
+
 process.stdin.resume();
-process.stdin.setEncoding('ascii');
+process.stdin.setEncoding('utf-8');
 
-var input_stdin = "";
-var input_stdin_array = "";
-var input_currentline = 0;
+let inputString = '';
+let currentLine = 0;
 
-process.stdin.on('data', function (data) {
-    input_stdin += data;
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
 });
 
-process.stdin.on('end', function () {
-    input_stdin_array = input_stdin.split("\n");
-    main();    
+process.stdin.on('end', _ => {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
 });
 
-// Reads complete line from STDIN
 function readLine() {
-    return input_stdin_array[input_currentline++];
+    return inputString[currentLine++];
+}
+
+// Complete the solve function below.
+function solve(meal_cost, tip_percent, tax_percent) {
+
+    var tip_perc = meal_cost * (tip_percent / 100)
+    var tax_perc = meal_cost * (tax_percent / 100)  
+    var total = Math.round(meal_cost + tip_perc + tax_perc)
+
+    console.log(total)
 }
 
 function main() {
-    var i = 4
-    var d = 4.0
-    var s = "HackerRank "
+    const meal_cost = parseFloat(readLine());
 
-    var si = parseInt(input_stdin_array[0])
-    var sd = parseFloat(input_stdin_array[1])
-    var ss = input_stdin_array[2]
+    const tip_percent = parseInt(readLine(), 10);
 
-    console.log(si + i)
-    console.log((sd + d).toFixed(1))
-    console.log(s + ss)
-    
-    // Declare second integer, double, and String variables.
+    const tax_percent = parseInt(readLine(), 10);
 
-    // Read and save an integer, double, and String to your variables.
-
-    // Print the sum of both integer variables on a new line.
-
-    // Print the sum of the double variables on a new line.
-
-    // Concatenate and print the String variables on a new line
-    // The 's' variable above should be printed first.
-
+    solve(meal_cost, tip_percent, tax_percent);
 }

@@ -1,10 +1,22 @@
-# Read a full line of input from stdin and save it to our dynamically typed variable, input_string.
-input_string = input()
+i = 4
+d = 4.0
+s = 'HackerRank '
 
-# Print a string literal saying "Hello, World." to stdout.
+si = input()
+sd = input()
+ss = input()
 
-print('Hello, World.')
-print(input_string)
+print(int(si) + i)
+print(float(sd) + d)
+print(s + ss)
+# Declare second integer, double, and String variables.
 
-# TODO: Write a line of code here that prints the contents of input_string to stdout.
+# Read and save an integer, double, and String to your variables.
+
+# Print the sum of both integer variables on a new line.
+
+# Print the sum of the double variables on a new line.
+
+# Concatenate and print the String variables on a new line
+# The 's' variable above should be printed first.
 

@@ -1,22 +1,24 @@
-i = 4
-d = 4.0
-s = 'HackerRank '
+#!/bin/python3
 
-si = input()
-sd = input()
-ss = input()
+import math
+import os
+import random
+import re
+import sys
 
-print(int(si) + i)
-print(float(sd) + d)
-print(s + ss)
-# Declare second integer, double, and String variables.
+# Complete the solve function below.
+def solve(meal_cost, tip_percent, tax_percent):
+    tip_perc = meal_cost * (tip_percent / 100)
+    tax_perc = meal_cost * (tax_percent / 100)
+    total = round(meal_cost + tip_perc + tax_perc)
 
-# Read and save an integer, double, and String to your variables.
+    print(total)
 
-# Print the sum of both integer variables on a new line.
+if __name__ == '__main__':
+    meal_cost = float(input())
 
-# Print the sum of the double variables on a new line.
+    tip_percent = int(input())
 
-# Concatenate and print the String variables on a new line
-# The 's' variable above should be printed first.
+    tax_percent = int(input())
 
+    solve(meal_cost, tip_percent, tax_percent)

@@ -1,58 +1,33 @@
+'use strict';
+
 process.stdin.resume();
-process.stdin.setEncoding('ascii');
+process.stdin.setEncoding('utf-8');
 
-var input_stdin = "";
-var input_stdin_array = "";
-var input_currentline = 0;
+let inputString = '';
+let currentLine = 0;
 
-process.stdin.on('data', function (data) {
-    input_stdin += data;
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
 });
 
-process.stdin.on('end', function () {
-    input_stdin_array = input_stdin.split("\n");
-    main();    
+process.stdin.on('end', _ => {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
 });
 
 function readLine() {
-    return input_stdin_array[input_currentline++];
+    return inputString[currentLine++];
 }
 
-function Person(initialAge){
-    // Add some more code to run some checks on initialAge
-    if(initialAge < 0){
-        console.log('Age is not valid, setting age to 0.')
-        initialAge = 0
-    }
-  this.amIOld=function(){
-   // Do some computations in here and print out the correct statement to the console
-   if(initialAge < 13){
-       console.log('You are young.')
-   }else if(initialAge >= 13 && initialAge < 18){
-       console.log('You are a teenager.')
-   }else{
-       console.log('You are old.')
-   }
 
-  };
-   this.yearPasses=function(){
-          // Increment the age of the person in here
-          initialAge += 1
-   };
-}
 
 function main() {
+    const n = parseInt(readLine(), 10);
 
-var T=parseInt(readLine());
-for(i=0;i<T;i++){
-    var age=parseInt(readLine());
-    var p=new Person(age);
-    p.amIOld();
-    for(j=0;j<3;j++){
-        p.yearPasses();
-        
-    }
-    p.amIOld();
-    console.log("");   
+    for(let i = 1; i <= 10; i++){
+        console.log(n + ' x ' + i + ' = ' + n * i)
     }
 }

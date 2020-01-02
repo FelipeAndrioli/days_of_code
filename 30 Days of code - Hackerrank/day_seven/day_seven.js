@@ -23,16 +23,13 @@ function readLine() {
 }
 
 function main() {
-    const N = parseInt(readLine(), 10);
+    const n = parseInt(readLine(), 10);
+    const arr = readLine().split(' ').map(arrTemp => parseInt(arrTemp, 10));
+    let newArr = []
 
-    if(N % 2 == 1){
-        console.log('Weird')
-    }else if(N % 2 == 0 && N >= 2 && N <= 5){
-        console.log('Not Weird')
-    }else if(N % 2 == 0 && N >= 6 && N <= 20){
-        console.log('Weird')
-    }else if(N > 20 ){
-        console.log('Not Weird')
+    for(let i = arr.length - 1; i > -1; i--){
+        newArr.push(arr[i] + " ")
     }
 
+    console.log(newArr.join(""))
 }

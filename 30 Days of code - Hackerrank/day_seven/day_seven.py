@@ -11,5 +11,6 @@ import sys
 if __name__ == '__main__':
     n = int(input())
 
-    for i in range(1, 11):
-        print(str(n) + str(' x ') + str(i) + str(' = ') + str(n * i))
+    arr = list(map(int, input().rstrip().split()))
+
+    print(*(arr[::-1]))
