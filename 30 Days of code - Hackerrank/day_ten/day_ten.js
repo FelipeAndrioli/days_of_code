@@ -11,16 +11,24 @@ function processBinary(n){
     }
 }
 
-let processData = processBinary(13).split("")
-console.log(processData)
-let count = 0
-let tempCount = 0
-let temp = processData[0]
+function comparisson(n){
+    let processData = processBinary(111).split("")
+    //console.log(processData)
+    let biggerCount = 0
+    let lowerCount = 0
 
-for(let i = 1; i < processData.length; i++){
-    if(temp === processData[i]){
-        count++
-    }else{
-        temp = processData[i]
+    for(let i = 0; i < processData.length; i++){
+        if(processData[i] == 1){
+            lowerCount++
+            if(lowerCount > biggerCount){
+                biggerCount = lowerCount
+            }
+        }else{
+            lowerCount = 0
+        }
     }
+
+    return biggerCount
 }
+
+console.log(comparisson(processBinary(111)))
