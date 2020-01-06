@@ -12,7 +12,7 @@ function processBinary(n){
 }
 
 function comparisson(n){
-    let processData = processBinary(111).split("")
+    let processData = n.split("")
     //console.log(processData)
     let biggerCount = 0
     let lowerCount = 0
