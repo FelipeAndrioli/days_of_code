@@ -15,43 +15,36 @@ class Person {
 
 class Student extends Person {
     constructor(firstName, lastName, identification, numScores, testScores){
-        super(firstName, lastName, identification, numScores, testScores)
-        this.numScores = numScores
+        super(firstName, lastName, identification)
         this.testScores = testScores
         
     }
 
-    calculate(){
+    calculate() {
 
-        let sum = 0
         let avg = 0
-        let conversion
+        let conversion = ''
 
-        for(let i = 0; i < this.numScores; i++){
-            sum += this.testScores[i]
+        for (let i = 0; i < this.testScores.length; i++) {
+            avg += this.testScores[i]
         }
 
-        avg = sum / this.numScores
+        avg /= this.testScores.length
 
-        if(90 <= avg  && avg <= 100){
-            //conversion = 'O'
-            return 'O'
-        }else if(80 <= avg  && avg < 90){
-            //conversion = 'E'
-            return 'E'
-        }else if(70 <= avg  && avg < 80){
-            //conversion = 'A'
-            return 'A'
-        }else if(55 <= avg && avg< 70){
-            //conversion = 'P'
-            return 'P'
-        }else if(40 <= avg && avg < 55){
-            //conversion = 'D'
-            return 'D'
-        }else if(avg < 40){
-            //conversion = 'T'
-            return 'T'
+        if (90 <= avg && avg <= 100) {
+            conversion = 'O'
+        } else if (80 <= avg && avg < 90) {
+            conversion = 'E'
+        } else if (70 <= avg && avg < 80) {
+            conversion = 'A'
+        } else if (55 <= avg && avg < 70) {
+            conversion = 'P'
+        } else if (40 <= avg && avg < 55) {
+            conversion = 'D'
+        } else {
+            conversion = 'T'
         }
+        return conversion
     }
 }
 
@@ -59,8 +52,8 @@ function main(){
     let firstName = 'Heraldo'
     let lastName = 'Mememlli'
     let id = 8135627
-    let numScores = 2
-    let testScores = [100, 80]
+    let numScores = 4
+    let testScores = [31, 32, 34, 35]
 
     let s = new Student(firstName, lastName, id, numScores, testScores)
     s.printPerson()
