@@ -6,13 +6,22 @@ function Solution(){
 
 	this.insert=function(head,data){
           //complete this method
-          if(head == null){
-              return new Node(data)
-          }else if(head.next == null){
-              return head.next = new Node(data)
-          }else{
-              insert(head.next, data)
+        
+          let node = new Node(data)
+
+          if(head == null) {
+              head = node
+          }else {
+              let temp = head
+
+              while(temp.next != null) {
+                  temp = temp.next
+              }
+
+              temp.next = node
           }
+
+        return head
     };
 
 	this.display=function(head){
