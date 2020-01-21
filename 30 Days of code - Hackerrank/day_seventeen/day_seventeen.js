@@ -1,34 +1,36 @@
 function Calculator() {
 
     this.power = function (n, p) {
-        
-        try{
-            if(n >= 0 && p >= 0){
-                return Math.pow(n, p)
-            }
-        } catch {
-            
+
+        if(n < 0 || p < 0){
+            throw("n and p should be non-negative")
+        }else{
+            return Math.pow(n, p)
         }
-        
     }
 }
 
 function main(){
     var myCalculator=new Calculator();
-    var T=parseInt(readLine());
-    while(T-->0){
-        var num = (readLine().split(" "));
+
         try{
-            var n=5
-            var p=7
-            var ans=myCalculator.power(n,p);
+            var n = 3
+            var p = 5
+            var ans=myCalculator.power(n, p);
             console.log(ans);
         }
         catch(e){
             console.log(e);
         }
-
-    }
 }
 
 main()
+
+/**
+ * 
+4
+3 5
+2 4
+-1 -2
+-1 3
+ */
